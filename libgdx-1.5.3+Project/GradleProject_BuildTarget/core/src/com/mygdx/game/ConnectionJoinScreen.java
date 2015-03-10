@@ -5,7 +5,7 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.mygdx.network.NetworkManager;
 
-public class ConnectionWaitScreen  implements Screen
+public class ConnectionJoinScreen  implements Screen
 {
 	public static boolean gameConnected;
 	public static boolean gameConnectFailed;
@@ -21,7 +21,7 @@ public class ConnectionWaitScreen  implements Screen
 	
 	int timeToDisconnect;
 
-	public ConnectionWaitScreen( BoxGame game, SpriteBatch inBatch )
+	public ConnectionJoinScreen( BoxGame game, SpriteBatch inBatch )
 	{
 		this.game = game;
 		this.batch = inBatch;
@@ -36,17 +36,16 @@ public class ConnectionWaitScreen  implements Screen
 	@Override
 	public void show() 
 	{
-		game.setBufferColor(0.0f, .5f, .5f);	
+		game.setBufferColor(0.0f, .25f, 0.5f);	
 		
-		timeToDisconnect = 600;
+		timeToDisconnect = 400;
 		
 		showScreen = true;
-		
 		gameConnected = false;
-		gameConnectFailed = false; 
+		gameConnectFailed = false;
 		
 		//Try making room
-		NetworkManager.createRoom();
+		NetworkManager.joinRoom();
 	}
 
 	@Override
@@ -54,15 +53,15 @@ public class ConnectionWaitScreen  implements Screen
 	{
 		if( showScreen )
 		{
-			font.draw( batch, "Waiting for player to join...", 30, 300);
+			font.draw( batch, "Trying to join a game...", 30, 300);
 			font.draw( batch, "Disconnect Timer: " + timeToDisconnect, 30, 250);
 			
 			
 			if( gameConnected )
 			{
-				//game.setScreen(game.mainMenu);
-				game.gameScreen.setGameStatus( NetworkProtocols.waitID);
+				game.gameScreen.setGameStatus( NetworkProtocols.joinID);
 				game.setScreen(game.gameScreen);
+			
 			}
 			else if( gameConnectFailed )
 			{
@@ -76,8 +75,6 @@ public class ConnectionWaitScreen  implements Screen
 				}
 				game.setScreen(game.mainMenu);
 			}
-			
-			timeToDisconnect--;
 		}
 	}
 

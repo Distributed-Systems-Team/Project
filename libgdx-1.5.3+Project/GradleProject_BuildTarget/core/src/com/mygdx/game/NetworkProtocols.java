@@ -23,6 +23,8 @@ public final class NetworkProtocols
 	
 	
 	
+	public static int gameEnded = -9;
+	
 	public static int waitID = 100;
 	public static int joinID = 101;
 	

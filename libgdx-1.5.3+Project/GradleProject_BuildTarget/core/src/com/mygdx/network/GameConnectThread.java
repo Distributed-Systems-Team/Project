@@ -12,6 +12,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.mygdx.game.BoxGame;
 import com.mygdx.game.ConnectionJoinScreen;
 import com.mygdx.game.ConnectionWaitScreen;
+import com.mygdx.game.GameScreen;
 import com.mygdx.game.NetworkProtocols;
 
 public class GameConnectThread implements Runnable
@@ -66,6 +67,18 @@ public class GameConnectThread implements Runnable
 					receive();
 				}
 				
+				boolean isCallbackReceived = false;
+				int callback;
+				while( !isCallbackReceived )
+				{
+					os.writeInt( NetworkProtocols.gameEnded);
+					
+					callback = is.readInt();
+					
+					if( callback == NetworkProtocols.gameEnded )
+						isCallbackReceived = true;
+				}
+				
 				client.close();
 				server.close();
 			}
@@ -102,7 +115,18 @@ public class GameConnectThread implements Runnable
 					send();
 					receive();
 				}
-				
+
+				boolean isCallbackReceived = false;
+				int callback;
+				while( !isCallbackReceived )
+				{
+					os.writeInt( NetworkProtocols.gameEnded);
+					
+					callback = is.readInt();
+					
+					if( callback == NetworkProtocols.gameEnded )
+						isCallbackReceived = true;
+				}
 				client.close();
 			}
 			catch( Exception e )
@@ -161,6 +185,17 @@ public class GameConnectThread implements Runnable
 			System.out.println("RECEIVING: ");
 			
 			int size = is.readInt();
+			
+			if( size == NetworkProtocols.gameEnded )
+			{
+				GameScreen.gameWon = false;
+				GameScreen.gameLost = true;
+				
+				os.writeInt( NetworkProtocols.gameEnded );
+				return;
+			}
+			
+			
 			byte[] b = new byte[ size ];
 			int i = 0;
 			while ( i < size )

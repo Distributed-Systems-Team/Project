@@ -39,8 +39,8 @@ public class GameScreen implements Screen
 	
 	static final float groundPos = 100;
 	
-	static boolean gameWon;
-	static boolean gameLost;
+	public static boolean gameWon;
+	public static boolean gameLost;
 	
 	//Render
 	final int renderTime = 1;

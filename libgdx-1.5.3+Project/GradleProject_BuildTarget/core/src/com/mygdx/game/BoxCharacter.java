@@ -179,12 +179,12 @@ public class BoxCharacter extends GameEntity
 			{
 				GameScreen.gameWon = true;
 				GameScreen.gameLost = false;
-			}
+			}/*
 			else
 			{
 				GameScreen.gameLost = true;
 				GameScreen.gameWon = false;
-			}
+			}*/
 			
 		}
 		else if( collideID == GameID.ID_ground ||

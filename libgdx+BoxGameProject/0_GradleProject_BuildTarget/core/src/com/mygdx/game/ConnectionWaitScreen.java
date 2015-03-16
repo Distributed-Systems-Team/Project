@@ -27,13 +27,9 @@ public class ConnectionWaitScreen  implements Screen
 {
 	public static boolean gameConnected;
 	public static boolean gameConnectFailed;
-	
 	boolean showScreen;
-	
 	BoxGame game;
 	SpriteBatch batch;
-	
-	
 	BitmapFont font;
 	
 	
@@ -43,9 +39,7 @@ public class ConnectionWaitScreen  implements Screen
 	{
 		this.game = game;
 		this.batch = inBatch;
-		
 		font = new BitmapFont();
-		
 		showScreen = false;
 		gameConnected = false;
 		gameConnectFailed = false;
@@ -55,11 +49,8 @@ public class ConnectionWaitScreen  implements Screen
 	public void show() 
 	{
 		game.setBufferColor(0.0f, .5f, .5f);	
-		
 		timeToDisconnect = 1200;
-		
 		showScreen = true;
-		
 		gameConnected = false;
 		gameConnectFailed = false; 
 		
@@ -75,10 +66,8 @@ public class ConnectionWaitScreen  implements Screen
 			font.setScale(1);
 			font.draw( batch, "Waiting for player to join...", 30, 300);
 			font.draw( batch, "Disconnect Timer: " + timeToDisconnect, 30, 250);
-			
 			font.setScale(2);
 			font.draw( batch, "Host Info: " + NetworkProtocols.ipAddress, 30, 500);
-			
 			
 			if( gameConnected )
 			{
@@ -90,8 +79,8 @@ public class ConnectionWaitScreen  implements Screen
 			{
 				try
 				{
-				NetworkManager.cleanup();
-				System.out.println("threadCleanedup");
+					NetworkManager.cleanup();
+					System.out.println("threadCleanedup");
 				}catch( Exception e )
 				{
 					

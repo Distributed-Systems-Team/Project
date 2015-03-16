@@ -25,27 +25,28 @@ import com.mygdx.network.NetworkManager;
 
 public class BoxGame extends Game
 {
-	public static int WIDTH = 800, HEIGHT = 600;
+	public static int WIDTH = 800;
+	public static int HEIGHT = 600;
 	public static boolean gameON;
 	
+	float bufferColorR;
+	float bufferColorG; 
+	float bufferColorB;
 	
-	float bufferColorR, bufferColorG, bufferColorB;
+	//Screens
 	MainMenuScreen mainMenu;
-	ConnectionWaitScreen waitScreen;
-	ConnectionJoinScreen joinScreen;
-	GameScreen	gameScreen;
-	ConnectionWinScreen winScreen;
-	ConnectionLoseScreen loseScreen;
-	ConnectionDisconnectScreen disconnectedScreen;
+	ConnectionWaitScreen 		waitScreen;
+	ConnectionJoinScreen 		joinScreen;
+	GameScreen 			gameScreen;
+	ConnectionWinScreen 		winScreen;
+	ConnectionLoseScreen 		loseScreen;
+	ConnectionDisconnectScreen 	disconnectedScreen;
 
-	
 	SpriteBatch batch;
 	
 	@Override
-	public void create () 
-	{
+	public void create (){
 		batch = new SpriteBatch();
-		
 		
 		//Create all necessary Scenes/Screens
 		mainMenu = new MainMenuScreen( this, batch );
@@ -63,25 +64,20 @@ public class BoxGame extends Game
 		gameON = false;
 	}
 	
-	
 	@Override
-	public void render () 
-	{
+	public void render (){
 		CollisionManager.checkCollisions();
 		InputManager.updateInputs();
-		
 		
 		//Buffer flipping
 		Gdx.gl.glClearColor( bufferColorR, bufferColorG, bufferColorB, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-		
 		
 		batch.begin();
 		
 		mainMenu.render(0);
 		waitScreen.render(0);
 		joinScreen.render(0);
-		
 		
 		gameScreen.render(0);
 		
@@ -92,35 +88,23 @@ public class BoxGame extends Game
 		batch.end();
 	}
 	
-	
-	public static void resetAllConnectionFlags()
-	{
+	public static void resetAllConnectionFlags(){
 		GameScreen.gameLost = false;
 		GameScreen.gameWon = false;
-		
 		BoxGame.gameON = false;
 	}
 	
-
-	
 	@Override
-	public void resize( int width, int height )
-	{
+	public void resize( int width, int height ){
 	}
 	
 	@Override
-	public void dispose()
-	{
+	public void dispose(){
 		gameON = false;
 		
-		try
-		{
+		try{
 			NetworkManager.cleanup();
-		}
-		catch ( Exception e)
-		{
-			System.out.println(e);
-		}
+		}catch ( Exception e){System.out.println(e);}
 		
 		batch.dispose();
 		
@@ -133,8 +117,7 @@ public class BoxGame extends Game
 		disconnectedScreen.dispose();
 	}
 	
-	public void setBufferColor( float r, float g, float b )
-	{	 
+	public void setBufferColor( float r, float g, float b )	{	 
 		bufferColorR = r;
 		bufferColorG = g; 
 		bufferColorB = b;

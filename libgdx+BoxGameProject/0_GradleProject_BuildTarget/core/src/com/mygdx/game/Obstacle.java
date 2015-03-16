@@ -24,15 +24,12 @@ import com.badlogic.gdx.math.Vector2;
 
 import com.badlogic.gdx.graphics.Color;
 
-
-
-public class Obstacle extends GameEntity
-{
+public class Obstacle extends GameEntity{
+	
 	float obstacleHeight;
 	float obstacleWidth;
 	
-	public Obstacle(boolean setCollision, Color color, Vector2 size, Vector2 pos)
-	{
+	public Obstacle(boolean setCollision, Color color, Vector2 size, Vector2 pos){
 		id = GameID.ID_obstacle;
 		
 		//Setup hitbox and rectangle
@@ -50,9 +47,7 @@ public class Obstacle extends GameEntity
 			registerCollision();
 	}
 	
-
-	public void render()
-	{	
+	public void render(){	
 		//Render box Shape
 		sprite.begin( ShapeType.Filled );
 		
@@ -61,20 +56,14 @@ public class Obstacle extends GameEntity
 		sprite.end();
 	}
 	
-	
 	//Collision stuff
-	public void collided( GameEntity other )
-	{
+	public void collided( GameEntity other ){
 	}
-	
 	//Input Stuff
-	void keyPressed( int key )
-	{
+	void keyPressed( int key ){
 	}
-	void keyReleased( int key )
-	{
+	void keyReleased( int key ){
 	}
-	void keyDown( int key )
-	{
+	void keyDown( int key ){
 	}
 }

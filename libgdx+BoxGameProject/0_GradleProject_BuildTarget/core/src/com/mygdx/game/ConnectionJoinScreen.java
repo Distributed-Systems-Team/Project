@@ -30,22 +30,17 @@ public class ConnectionJoinScreen  implements Screen
 {
 	public static boolean gameConnected;
 	public static boolean gameConnectFailed;
-	
 	boolean showScreen;
 	int timeUntilPrompt;
-	
 	BoxGame game;
 	SpriteBatch batch;
-	
 	BitmapFont font;
 
 	public ConnectionJoinScreen( BoxGame game, SpriteBatch inBatch )
 	{
 		this.game = game;
 		this.batch = inBatch;
-		
 		font = new BitmapFont();
-		
 		showScreen = false;
 		gameConnected = false;
 		gameConnectFailed = false;
@@ -55,11 +50,9 @@ public class ConnectionJoinScreen  implements Screen
 	public void show() 
 	{
 		game.setBufferColor(0.0f, .25f, 0.5f);	
-		
 		showScreen = true;
 		gameConnected = false;
 		gameConnectFailed = false;
-		
 		timeUntilPrompt = 10;
 		
 		//Trying to making room

@@ -25,24 +25,17 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 public class ConnectionWinScreen  implements Screen
 {
 	boolean showScreen;
-	
 	BoxGame game;
 	SpriteBatch batch;
-	
-	
 	BitmapFont font;
-	
-	
 	int timeToEnd;
 
 	public ConnectionWinScreen( BoxGame game, SpriteBatch inBatch )
 	{
 		this.game = game;
 		this.batch = inBatch;
-		
 		font = new BitmapFont();
 		font.setScale( 4);
-		
 		showScreen = false;
 	}
 	
@@ -53,7 +46,6 @@ public class ConnectionWinScreen  implements Screen
 		
 		//300 is about 5 seconds
 		timeToEnd = 300;
-		
 		showScreen = true;
 	}
 
@@ -64,7 +56,6 @@ public class ConnectionWinScreen  implements Screen
 		{
 			font.setScale( 4);
 			font.draw( batch, "YOU WIN!!!", 100, 300);
-			
 			font.setScale( 5);
 			
 			if( timeToEnd < 240 )

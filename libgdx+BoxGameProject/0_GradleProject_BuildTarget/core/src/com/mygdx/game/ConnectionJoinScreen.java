@@ -62,7 +62,7 @@ public class ConnectionJoinScreen  implements Screen
 		
 		timeUntilPrompt = 10;
 		
-		//Try making room
+		//Trying to making room
 		NetworkManager.joinRoom();
 	}
 
@@ -96,6 +96,7 @@ public class ConnectionJoinScreen  implements Screen
 					NetworkManager.cleanup();
 				}catch( Exception e )
 				{
+					
 				}
 				
 				game.setScreen(game.mainMenu);

@@ -1,3 +1,14 @@
+/*
+ * 
+ * This class is NOT from any of the BoxGame Group members
+ * 
+ * NetworkSerializer is a class written as an answer to a question on StackOverFlow
+ * by Henrik Gustafsson
+ *  
+ *  Source Site: http://stackoverflow.com/questions/5837698/converting-any-object-to-a-byte-array-in-java
+ *
+ */
+
 package com.mygdx.network;
 
 import java.io.ByteArrayInputStream;

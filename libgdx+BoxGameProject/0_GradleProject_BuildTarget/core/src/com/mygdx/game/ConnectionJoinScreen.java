@@ -19,7 +19,6 @@ package com.mygdx.game;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -87,6 +86,7 @@ public class ConnectionJoinScreen  implements Screen
 				try
 				{
 					NetworkManager.cleanup();
+					
 				}catch( Exception e )
 				{
 					

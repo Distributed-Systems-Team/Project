@@ -25,14 +25,9 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 public class ConnectionLoseScreen  implements Screen
 {
 	boolean showScreen;
-	
 	BoxGame game;
 	SpriteBatch batch;
-	
-	
 	BitmapFont font;
-	
-	
 	int timeToEnd;
 
 	public ConnectionLoseScreen( BoxGame game, SpriteBatch inBatch )
@@ -64,7 +59,6 @@ public class ConnectionLoseScreen  implements Screen
 		{
 			font.setScale( 4);
 			font.draw( batch, "you lose...", 100, 300);
-
 			font.setScale( 5);
 			
 			if( timeToEnd < 240 )

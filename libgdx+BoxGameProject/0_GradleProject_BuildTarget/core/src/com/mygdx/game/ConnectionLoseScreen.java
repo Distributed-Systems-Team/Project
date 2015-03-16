@@ -34,10 +34,8 @@ public class ConnectionLoseScreen  implements Screen
 	{
 		this.game = game;
 		this.batch = inBatch;
-		
 		font = new BitmapFont();
 		font.setScale( 4);
-		
 		showScreen = false;
 	}
 	
@@ -48,7 +46,6 @@ public class ConnectionLoseScreen  implements Screen
 		
 		//300 is about 5 seconds
 		timeToEnd = 300;
-		
 		showScreen = true;
 	}
 

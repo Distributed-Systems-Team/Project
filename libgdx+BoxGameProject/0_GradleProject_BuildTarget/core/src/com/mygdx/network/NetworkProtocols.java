@@ -10,7 +10,7 @@
  * 						GameEntity.java, GameID.java, GameScreen.java, Goal.java, InputEntity.java, InputManager.java, KeyEvent.java,
  * 						MainMenuScreen.java, Obstacle.java, Physics.java
  * 
- * Main Coder: David Kim
+ * Main Coder: 
  * Contributors: 
  * 
  */

@@ -1,5 +1,21 @@
-package com.mygdx.game;
+/*
+ * BoxGame - CSC376 Group Project
+ * Team Members: David Kim, Baldomero Samaro,
+ *				 Matt Wylder, Stipo Perisa
+ * 
+ * Source File: InputManager.java
+ * 
+ * All Files in Project: Boundary.java, BoxCharacter.java, BoxGame.java, CollisionManager.java, ConnectionDisconnectScreen.java,
+ * 						ConnectionJoinScreen.java, ConnectionLoseScreen.java, ConnectionWaitScreen.java, ConnectionWinScreen.java,
+ * 						GameEntity.java, GameID.java, GameScreen.java, Goal.java, InputEntity.java, InputManager.java, KeyEvent.java,
+ * 						MainMenuScreen.java, Obstacle.java, Physics.java
+ * 
+ * Main Coder: 
+ * Contributors: 
+ * 
+ */
 
+package com.mygdx.game;
 
 import java.util.LinkedList;
 import java.util.Iterator;
